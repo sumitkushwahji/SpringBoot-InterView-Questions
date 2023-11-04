@@ -62,6 +62,92 @@ To add Spring Boot Actuator to your application, you need to include the spring-
 After adding the dependency, you can configure Actuator endpoints and their properties in your application.properties or application.yml file. For example, to enable all default endpoints, you can add the following configuration:
 
 ```java
+
 management.endpoints.web.exposure.include=*
 ```
 Spring Boot Actuator is a powerful tool for monitoring, managing, and troubleshooting your Spring Boot application in a production environment. However, you should be cautious when exposing sensitive information or enabling certain endpoints in a production environment to ensure security and privacy.
+
+
+## Stream API
+The Stream API in Java is a powerful and expressive way to process sequences of data, such as collections (e.g., lists, sets, and maps), arrays, or I/O channels, in a functional style. Introduced in Java 8, it provides a clean and concise way to perform common data manipulation operations, like filtering, mapping, reducing, and transforming data, while making your code more readable and expressive.
+
+Key features of the Java Stream API:
+
+### Functional Programming: 
+The Stream API encourages a functional programming approach, where you define what you want to do with the data rather than how to do it. This leads to cleaner and more concise code.
+
+### Lazy Evaluation:
+Streams use lazy evaluation, meaning operations are performed only when necessary. This can lead to improved performance for large datasets.
+
+### Chaining:
+You can chain multiple operations together, creating a pipeline of transformations and operations on the data.
+
+### Immutable Data: 
+Streams do not modify the underlying data. Instead, they create new streams with the transformed data, leaving the original data intact.
+
+### Parallel Processing:
+Java Streams can easily be parallelized to take advantage of multi-core processors for parallel execution of operations.
+
+Here are some common operations you can perform using the Java Stream API:
+
+### Filtering: 
+You can filter elements based on a specified condition.
+
+```
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+List<Integer> evenNumbers = numbers.stream()
+    .filter(n -> n % 2 == 0)
+    .collect(Collectors.toList()); // [2, 4]
+```
+### Mapping:
+You can transform elements using a given function.
+
+```
+List<String> names = Arrays.asList("John", "Alice", "Bob");
+List<Integer> nameLengths = names.stream()
+    .map(String::length)
+    .collect(Collectors.toList()); // [4, 5, 3]
+```
+
+### Reducing:
+You can combine elements into a single value (e.g., sum, product, or finding the maximum).
+
+```
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+int sum = numbers.stream()
+    .reduce(0, Integer::sum); // 15
+```
+
+### Sorting: 
+You can sort elements in ascending or descending order.
+
+```
+List<Integer> numbers = Arrays.asList(5, 3, 1, 4, 2);
+List<Integer> sortedNumbers = numbers.stream()
+    .sorted()
+    .collect(Collectors.toList()); // [1, 2, 3, 4, 5]
+```
+
+### Grouping and Aggregating: 
+You can group elements by a key and perform aggregate operations.
+
+```
+List<Person> people = ... // List of Person objects
+Map<Gender, List<Person>> peopleByGender = people.stream()
+    .collect(Collectors.groupingBy(Person::getGender));
+```
+### Parallel Processing: 
+You can leverage parallel streams to process data in parallel.
+
+```
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+int sum = numbers.parallelStream()
+    .reduce(0, Integer::sum); // Parallel reduction
+```
+The Stream API in Java is a powerful tool for working with data in a functional and expressive way. It simplifies the code and makes it easier to write, read, and maintain data processing operations. Streams are widely used in Java applications for various data manipulation tasks.
+
+
+
+
+
+
