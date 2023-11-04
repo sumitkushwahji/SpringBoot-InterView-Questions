@@ -5,19 +5,14 @@ Profiling in Spring Boot is a technique that allows you to manage application-sp
 
 Here are the key aspects of profiling in Spring Boot:
 
-Profile Definitions:
+application-dev.yml (Development Configuration):
+```java
+spring:
+  profiles: dev
+  jpa:
+    show-sql: true # Enable SQL logging for dev
+  # Add other dev-specific settings
 
-Active Profiles: Active profiles determine which set of configuration properties and beans are used in your application. You can set the active profile using the spring.profiles.active property. This property can be configured in various ways, including in application.properties or application.yml, through command-line arguments, environment variables, and system properties.
-Default Profiles: Default profiles are profiles that are automatically active when no other profiles are explicitly set as active. You can set default profiles using the spring.profiles.default property.
-Profile-Specific Configuration:
+upload:
+  dir: src/dev-files # Define the directory for storing uploaded files in dev
 
-You can create profile-specific configuration files using the naming convention application-{profile}.properties or application-{profile}.yml. For example, application-dev.properties for the development profile and application-prod.yml for the production profile.
-Profile-specific configuration files allow you to override properties and define profile-specific settings.
-Property Sources:
-
-Spring Boot combines properties from various sources. The order of precedence for property sources, from highest to lowest precedence, is as follows:
-a. Profile-specific properties (e.g., application-dev.properties).
-b. Regular application.properties or application.yml.
-c. Command-line arguments.
-d. Environment variables.
-e. System properties.
