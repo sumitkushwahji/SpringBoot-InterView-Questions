@@ -48,7 +48,7 @@ spring:
 ```
 Setting spring.profiles.active to 'dev' will load the configuration from application-dev.yml, and setting it to 'prod' will load the configuration from application-prod.yml. You can easily switch between profiles by changing the value of spring.profiles.active in the main application.yml file.
 
-##Spring Boot Actuator
+## Spring Boot Actuator
 
 Spring Boot Actuator is a set of production-ready features that can be added to your Spring Boot application to monitor and manage it. Actuators provide various built-in endpoints that expose useful information about your application, including health, metrics, environment properties, application properties, and more. These endpoints are valuable for monitoring and managing your application in a production environment.
 
