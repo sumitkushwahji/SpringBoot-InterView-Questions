@@ -16,3 +16,34 @@ spring:
 upload:
   dir: src/dev-files # Define the directory for storing uploaded files in dev
 
+```
+
+
+application-prod.yml (Production Configuration):
+```java
+spring:
+  profiles: prod
+  jpa:
+    show-sql: false # Disable SQL logging for production
+  # Add other production-specific settings
+
+upload:
+  dir: src/prod-files # Define the directory for storing uploaded files in production
+```
+
+In this configuration:
+
+The application-dev.yml file contains properties specific to the development environment. In this case, we enable SQL logging and specify a different directory for storing uploaded files.
+
+The application-prod.yml file contains properties specific to the production environment. We disable SQL logging and specify a different directory for storing uploaded files.
+
+To activate a specific profile (either 'dev' or 'prod'), set the spring.profiles.active property in your main application.yml. For example:
+
+application.yml:
+
+```java
+spring:
+  profiles:
+    active: dev # or prod to activate the production profile
+```
+Setting spring.profiles.active to 'dev' will load the configuration from application-dev.yml, and setting it to 'prod' will load the configuration from application-prod.yml. You can easily switch between profiles by changing the value of spring.profiles.active in the main application.yml file.
