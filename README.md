@@ -47,3 +47,21 @@ spring:
     active: dev # or prod to activate the production profile
 ```
 Setting spring.profiles.active to 'dev' will load the configuration from application-dev.yml, and setting it to 'prod' will load the configuration from application-prod.yml. You can easily switch between profiles by changing the value of spring.profiles.active in the main application.yml file.
+
+##Spring Boot Actuator
+
+Spring Boot Actuator is a set of production-ready features that can be added to your Spring Boot application to monitor and manage it. Actuators provide various built-in endpoints that expose useful information about your application, including health, metrics, environment properties, application properties, and more. These endpoints are valuable for monitoring and managing your application in a production environment.
+
+To add Spring Boot Actuator to your application, you need to include the spring-boot-starter-actuator dependency in your project. For example, if you're using Maven, you can add the following dependency to your pom.xml:
+```java
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+After adding the dependency, you can configure Actuator endpoints and their properties in your application.properties or application.yml file. For example, to enable all default endpoints, you can add the following configuration:
+
+```java
+management.endpoints.web.exposure.include=*
+```
+Spring Boot Actuator is a powerful tool for monitoring, managing, and troubleshooting your Spring Boot application in a production environment. However, you should be cautious when exposing sensitive information or enabling certain endpoints in a production environment to ensure security and privacy.
